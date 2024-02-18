@@ -24,6 +24,10 @@ a ft_putnbr(n / 10) recursivamente para escribir los dígitos más
 significativos. Finalmente, escribe el dígito menos significativo 
 de n utilizando ft_putchar().*/
 void ft_putnbr(int n) {
+	if (n == INT_MIN) {
+        ft_putstr("-2147483648");
+        return;
+    }
     if (n < 0) {
         ft_putchar('-');
         n = -n;
