@@ -56,19 +56,24 @@ decimal.
 Esta función primero imprime la parte entera del número, luego
 un punto decimal, y finalmente la parte decimal del número. Ten
 en cuenta que esta función solo maneja la precisión hasta dos
-decimales y no redondea el último decimal.
-                   !!!!!!!!OJO!!!!!!
-Si necesito más precisión o redondeo, tendre que modificar la
-función.*/
+decimales y no redondea el último decimal.*/
 void ft_putfloat(double n) {
-    int integerPart = (int)n;
+    long long integerPart = (long long)n;
     double decimalPart = n - integerPart;
-    int decimalAsInt = (int)(decimalPart * 100);
+    long long decimalAsInt = (long long)(decimalPart * 1000000);
 
     ft_putnbr(integerPart);
     ft_putchar('.');
     if (decimalAsInt < 10) {
-        ft_putchar('0');
+		ft_putstr("00000");
+    } else if (decimalAsInt < 100) {
+        ft_putstr("0000");
+    } else if (decimalAsInt < 1000) {
+        ft_putstr("000");
+    } else if (decimalAsInt < 10000) {
+        ft_putstr("00");
+    } else if (decimalAsInt < 100000) {
+        ft_putchar("0");
     }
     ft_putnbr(decimalAsInt);
 }
