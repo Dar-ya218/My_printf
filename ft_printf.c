@@ -6,7 +6,7 @@
 /*   By: dabochko <dabochko@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 15:10:23 by dabochko          #+#    #+#             */
-/*   Updated: 2024/02/20 13:17:23 by dabochko         ###   ########.fr       */
+/*   Updated: 2024/02/20 14:06:53 by dabochko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,15 @@ void ft_putchar(char c) {
     write(1, &c, 1);
 }
 
+/*int main() {
+    ft_putchar('H');
+    ft_putchar('o');
+    ft_putchar('l');
+    ft_putchar('a');
+    ft_putchar('\n');
+    return 0;
+}*/
+
 /*toma una cadena de caracteres s como argumento y la escribe en la 
 salida estándar carácter por carácter utilizando la función ft_putchar().
 El bucle while (*s) se ejecuta hasta que se encuentra el carácter nulo
@@ -29,6 +38,11 @@ void ft_putstr(char *s) {
     while (*s)
         ft_putchar(*s++);
 }
+
+/*int main() {
+    ft_putstr("Hola, mundo!\n");
+    return 0;
+}*/
 
 /*toma un número entero n como argumento y lo escribe en la salida 
 estándar como una cadena de caracteres. Si n es negativo, escribe 
