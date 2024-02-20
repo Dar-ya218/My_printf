@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dabochko <dabochko@student.42barcel>       +#+  +:+       +#+        */
+/*   By: dabochko <dabochko@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 15:10:23 by dabochko          #+#    #+#             */
-/*   Updated: 2024/02/19 15:10:41 by dabochko         ###   ########.fr       */
+/*   Updated: 2024/02/20 13:17:23 by dabochko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdarg.h>
 #include <unistd.h>
+#include <limits.h>
 
 /*toma un carácter c como argumento y lo escribe en la salida estándar 
 utilizando la función write(). write(1, &c, 1) escribe un solo carácter 
@@ -61,34 +62,6 @@ void ft_putunbr(unsigned int n) {
     ft_putchar((n % 10) + '0');
 }
 
-/*debe imprimir un número de punto flotante. Sin embargo, imprimir
-números de punto flotante es un poco más complicado que imprimir
-números enteros debido a la precisión y el manejo de la parte
-decimal.
-Esta función primero imprime la parte entera del número, luego
-un punto decimal, y finalmente la parte decimal del número. Ten
-en cuenta que esta función solo maneja la precisión hasta dos
-decimales y no redondea el último decimal.*/
-void ft_putfloat(double n) {
-    long long integerPart = (long long)n;
-    double decimalPart = n - integerPart;
-    long long decimalAsInt = (long long)(decimalPart * 1000000);
-
-    ft_putnbr(integerPart);
-    ft_putchar('.');
-    if (decimalAsInt < 10) {
-		ft_putstr("00000");
-    } else if (decimalAsInt < 100) {
-        ft_putstr("0000");
-    } else if (decimalAsInt < 1000) {
-        ft_putstr("000");
-    } else if (decimalAsInt < 10000) {
-        ft_putstr("00");
-    } else if (decimalAsInt < 100000) {
-        ft_putchar("0");
-    }
-    ft_putnbr(decimalAsInt);
-}
 
 /*imprime un número en formato hexadecimal
 Esta función funciona de manera similar a ft_putnbr(), pero en
@@ -104,6 +77,23 @@ void ft_puthex(unsigned int n) {
     if (n >= 16)
         ft_puthex(n / 16);
     ft_putchar(hexDigits[n % 16]);
+}
+
+void ft_puthex_upper(unsigned int n) {
+    char *hexDigits = "0123456789ABCDEF";
+
+    if (n >= 16)
+        ft_puthex_upper(n / 16);
+    ft_putchar(hexDigits[n % 16]);
+}
+
+/*La función ft_putptr convierte el puntero a un valor de tipo
+unsigned long, luego imprime "0x" seguido del valor del puntero
+en hexadecimal.*/
+void ft_putptr(void *p) {
+    unsigned long ptr_val = (unsigned long)p;
+    ft_putstr("0x");
+    ft_puthex_upper(ptr_val);
 }
 
 /* Toma una cadena de formato y un número variable de argumentos. 
@@ -126,14 +116,16 @@ void ft_printf(char *format, ...) {
                 ft_putchar(va_arg(args, int));
             else if (*format == 's')
                 ft_putstr(va_arg(args, char *));
-            else if (*format == 'd')
+            else if (*format == 'd' || *format == 'i')
                 ft_putnbr(va_arg(args, int));
 			else if (*format == 'u')
                 ft_putunbr(va_arg(args, unsigned int));
-            else if (*format == 'f')
-                ft_putfloat(va_arg(args, double));
             else if (*format == 'x')
                 ft_puthex(va_arg(args, unsigned int));
+            else if (*format == 'X')
+                ft_puthex_upper(va_arg(args, unsigned int));
+            else if (*format == 'p')
+                ft_putptr(va_arg(args, void *));
         } else {
             ft_putchar(*format);
         }
@@ -142,3 +134,15 @@ void ft_printf(char *format, ...) {
 
     va_end(args);
 }
+
+/*int main() {
+    int var = 123;
+
+    ft_printf("Hola, %s. Tienes %d años y tu altura es %u cm.\n", "Juan", 30, 175);
+    ft_printf("El valor en hexadecimal de 255 es %x.\n", 255);
+    ft_printf("El valor en hexadecimal (mayúsculas) de 255 es %X.\n", 255);
+    ft_printf("La dirección de memoria de esta variable es %p.\n", &ft_printf);
+    ft_printf("La dirección de memoria de var es %p y su valor es %d.\n", &var, var);
+
+    return 0;
+}*/
