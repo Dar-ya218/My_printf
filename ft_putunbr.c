@@ -6,7 +6,7 @@
 /*   By: dabochko <dabochko@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 14:35:26 by dabochko          #+#    #+#             */
-/*   Updated: 2024/02/20 14:40:36 by dabochko         ###   ########.fr       */
+/*   Updated: 2024/02/21 15:30:33 by dabochko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,25 @@ número uno por uno. Si el número es mayor o igual a 10, la función
 se llama a sí misma con el número dividido por 10. Esto efectivamente
 "descarta" el último dígito del número. Luego, imprime el último
 dígito del número original.*/
-void	ft_putunbr(unsigned int n)
+static int  ft_size(unsigned int n)
 {
+    int i;
+
+    i = 0;
+    while (n > 0)
+    {
+        n = n / 10;
+        i++;
+    }
+    return (i);
+}
+int	ft_putunbr(unsigned int n)
+{
+	int i;
+
+	i = ft_size(n);
 	if (n >= 10)
 		ft_putunbr(n / 10);
 	ft_putchar((n % 10) + '0');
+	return (i);
 }

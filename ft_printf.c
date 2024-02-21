@@ -6,7 +6,7 @@
 /*   By: dabochko <dabochko@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 15:10:23 by dabochko          #+#    #+#             */
-/*   Updated: 2024/02/21 12:22:44 by dabochko         ###   ########.fr       */
+/*   Updated: 2024/02/21 14:56:18 by dabochko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,11 @@ static int	ft_selector(va_list args, char const place)
 	if (place == 'c')
 		size += ft_putchar(va_arg(args, int));
 	else if (place == 's')
-		size += ft_putstr(va_arg(args, char *));/*
+		size += ft_putstr(va_arg(args, char *));
 	else if (place == 'd' || place == 'i')
 		size += ft_putnbr(va_arg(args, int));
 	else if (place == 'u')
-		size += ft_putunbr(va_arg(args, unsigned int));
+		size += ft_putunbr(va_arg(args, unsigned int));/*
 	else if (place == 'x' || places == 'X')
 		size += ft_puthex(va_arg(args, unsigned int));
 	else if (place == 'p')
@@ -71,7 +71,7 @@ int	ft_printf(const char *format, ...)
 int main(void) 
 {
 	int i;
-    i = ft_printf("hola %c %s", 'c', "HEllo");
-	printf("\n%i\n", i);
+    i = ft_printf("hola %c %s %i %d %u", 'c', "HEllo", 547, -13, -1);
+	printf("\n%d\n", i);
     return (0);
 }
