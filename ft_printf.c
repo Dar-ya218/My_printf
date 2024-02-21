@@ -6,7 +6,7 @@
 /*   By: dabochko <dabochko@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 15:10:23 by dabochko          #+#    #+#             */
-/*   Updated: 2024/02/20 15:58:12 by dabochko         ###   ########.fr       */
+/*   Updated: 2024/02/21 12:22:44 by dabochko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ static int	ft_selector(va_list args, char const place)
 	size = 0;
 	if (place == 'c')
 		size += ft_putchar(va_arg(args, int));
-	/*else if (place == 's')
-		size += ft_putstr(va_arg(args, char *));
+	else if (place == 's')
+		size += ft_putstr(va_arg(args, char *));/*
 	else if (place == 'd' || place == 'i')
 		size += ft_putnbr(va_arg(args, int));
 	else if (place == 'u')
@@ -70,6 +70,8 @@ int	ft_printf(const char *format, ...)
 
 int main(void) 
 {
-    ft_printf("hola %c", 'c');
+	int i;
+    i = ft_printf("hola %c %s", 'c', "HEllo");
+	printf("\n%i\n", i);
     return (0);
 }

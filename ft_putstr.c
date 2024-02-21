@@ -6,7 +6,7 @@
 /*   By: dabochko <dabochko@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 14:28:00 by dabochko          #+#    #+#             */
-/*   Updated: 2024/02/20 14:29:32 by dabochko         ###   ########.fr       */
+/*   Updated: 2024/02/21 12:18:22 by dabochko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,17 @@
 salida estándar carácter por carácter utilizando la función ft_putchar().
 El bucle while (*s) se ejecuta hasta que se encuentra el carácter nulo
 que marca el final de la cadena.*/
-void	ft_putstr(char *s)
+int	ft_putstr(char *s)
 {
-	while (*s)
-		ft_putchar(*s++);
+	int i;
+
+	i = 0;
+	if (!s)
+		return(ft_putstr("null"));
+	while (s[i])
+	{
+		ft_putchar(s[i]);
+		i++;
+	}
+	return (i);
 }

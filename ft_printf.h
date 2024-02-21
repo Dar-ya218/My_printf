@@ -6,7 +6,7 @@
 /*   By: dabochko <dabochko@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 14:54:13 by dabochko          #+#    #+#             */
-/*   Updated: 2024/02/20 15:56:28 by dabochko         ###   ########.fr       */
+/*   Updated: 2024/02/21 12:20:26 by dabochko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,8 @@
 # include <unistd.h>
 # include <stdarg.h>
 
-int	ft_putchar(int c);/*
-void	ft_putstr(va_arg(args, char *));
-void	ft_putchar(va_arg(args, int));
+int	ft_putchar(int c);
+int	ft_putstr(char *s);/*
 void	ft_putnbr(va_arg(args, int));
 void	ft_putstr(va_arg(args, char *));
 void	ft_putunbr(va_arg(args, unsigned int));
