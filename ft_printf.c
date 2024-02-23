@@ -6,7 +6,7 @@
 /*   By: dabochko <dabochko@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 15:10:23 by dabochko          #+#    #+#             */
-/*   Updated: 2024/02/21 14:56:18 by dabochko         ###   ########.fr       */
+/*   Updated: 2024/02/23 11:34:43 by dabochko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,9 @@ static int	ft_selector(va_list args, char const place)
 	else if (place == 'd' || place == 'i')
 		size += ft_putnbr(va_arg(args, int));
 	else if (place == 'u')
-		size += ft_putunbr(va_arg(args, unsigned int));/*
-	else if (place == 'x' || places == 'X')
-		size += ft_puthex(va_arg(args, unsigned int));
+		size += ft_putunbr(va_arg(args, unsigned int));
+	else if (place == 'x' || place == 'X')
+		size += ft_puthex(va_arg(args, unsigned int), place);/*
 	else if (place == 'p')
 		size += ft_putptr(va_arg(args, void *));*/
 	else
@@ -68,10 +68,10 @@ int	ft_printf(const char *format, ...)
 	return (size);
 }
 
-int main(void) 
+/*int main(void) 
 {
 	int i;
-    i = ft_printf("hola %c %s %i %d %u", 'c', "HEllo", 547, -13, -1);
+    i = ft_printf("hola %c %s %i %d %u %x %X", 'c', "HEllo", 547, -13, -1, 255, 255);
 	printf("\n%d\n", i);
     return (0);
-}
+}*/

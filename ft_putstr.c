@@ -6,7 +6,7 @@
 /*   By: dabochko <dabochko@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 14:28:00 by dabochko          #+#    #+#             */
-/*   Updated: 2024/02/21 12:36:05 by dabochko         ###   ########.fr       */
+/*   Updated: 2024/02/23 11:35:55 by dabochko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	ft_putstr(char *s)
 
 	i = 0;
 	if (!s)
-		return(ft_putstr("null"));
+		return(ft_putstr("(null)"));
 	while (s[i])
 	{
 		ft_putchar(s[i]);
