@@ -3,15 +3,16 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: dabochko <dabochko@student.42.fr>          +#+  +:+       +#+         #
+#    By: dabochko <dabochko@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/02/19 15:08:38 by dabochko          #+#    #+#              #
-#    Updated: 2024/02/23 11:32:14 by dabochko         ###   ########.fr        #
+#    Created: 2024/02/23 15:31:01 by dabochko          #+#    #+#              #
+#    Updated: 2024/03/01 13:46:05 by dabochko         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
-SRC = ft_printf.c ft_putchar.c ft_putstr.c ft_putchar.c ft_putnbr.c ft_putstr.c ft_putunbr.c ft_putnbr.c ft_puthex.c #ft_putptr.c#
+SRC = ft_printf.c ft_putchar.c ft_putstr.c ft_putchar.c ft_putnbr.c\
+	ft_putstr.c ft_putunbr.c ft_putnbr.c ft_puthex.c ft_putptr.c
 OBJ = $(SRC:.c=.o)
 CFLAGS = -Wall -Werror -Wextra
 

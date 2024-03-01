@@ -6,7 +6,7 @@
 /*   By: dabochko <dabochko@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 14:37:44 by dabochko          #+#    #+#             */
-/*   Updated: 2024/02/23 11:22:31 by dabochko         ###   ########.fr       */
+/*   Updated: 2024/03/01 14:15:04 by dabochko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,11 @@ static int	ft_size(unsigned int n)
 
 int	ft_puthex(unsigned int n, char const place)
 {
-	static int	size = -1;
+	int		size;
 	char	*hex;
 	char	*hexDigits2;
 
-	if (size == -1)
-		size = ft_size(n);
+	size = ft_size(n);
 	hex = "0123456789abcdef";
     hexDigits2 = "0123456789ABCDEF";
 	if (n == 0)

@@ -6,7 +6,7 @@
 /*   By: dabochko <dabochko@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 14:31:30 by dabochko          #+#    #+#             */
-/*   Updated: 2024/02/22 13:00:33 by dabochko         ###   ########.fr       */
+/*   Updated: 2024/03/01 14:15:42 by dabochko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static int	ft_size(int n)
 	int	i;
 
 	i = 0;
-	while (n > 0)
+	while (n != 0)
 	{
 		n = n / 10;
 		i++;
@@ -43,6 +43,7 @@ int	ft_putnbr(int n)
 	{
 		ft_putchar('-');
 		n = -n;
+		size++;
 	}
 	if (n > 9)
 		ft_putnbr(n / 10);
