@@ -6,7 +6,7 @@
 /*   By: dabochko <dabochko@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 14:46:04 by dabochko          #+#    #+#             */
-/*   Updated: 2024/03/01 14:23:56 by dabochko         ###   ########.fr       */
+/*   Updated: 2024/03/01 15:37:55 by dabochko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ int	ft_putptr(unsigned long ptr)
 	char *hex;
 
     size = ptr_size(ptr);
-	size += ft_putstr("0x");
     hex = "0123456789abcdef";
     if (ptr == 0)
         return (ft_putchar('0'));
