@@ -6,7 +6,7 @@
 /*   By: dabochko <dabochko@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 15:10:23 by dabochko          #+#    #+#             */
-/*   Updated: 2024/02/23 11:34:43 by dabochko         ###   ########.fr       */
+/*   Updated: 2024/03/01 15:41:56 by dabochko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,12 @@ static int	ft_selector(va_list args, char const place)
 	else if (place == 'u')
 		size += ft_putunbr(va_arg(args, unsigned int));
 	else if (place == 'x' || place == 'X')
-		size += ft_puthex(va_arg(args, unsigned int), place);/*
+		size += ft_puthex(va_arg(args, unsigned int), place);
 	else if (place == 'p')
-		size += ft_putptr(va_arg(args, void *));*/
+	{
+		size += ft_putstr("0x");
+		size += ft_putptr(va_arg(args, unsigned long));
+	}
 	else
 		size += ft_putchar(place);
 	return (size);
@@ -46,30 +49,35 @@ int	ft_printf(const char *format, ...)
 {
 	int		i;
 	int		size;
+	int		size2;
 	va_list	args;
 
 	i = 0;
 	size = 0;
+	size2 = 0;
 	va_start(args, format);
 	while (format[i])
 	{
 		if (format[i] == '%')
 		{
-			size += ft_selector(args, format[i + 1]);
+			size = ft_selector(args, format[i + 1]);
 			i++;
 		}
 		else
-			size += ft_putchar(format[i]);
+			size = ft_putchar(format[i]);
+		if (size == -1)
+			return (-1);
+		size2 += size;
 		i++;
 	}
 	va_end(args);
-	return (size);
+	return (size2);
 }
 
 /*int main(void) 
 {
 	int i;
-    i = ft_printf("hola %c %s %i %d %u %x %X", 'c', "HEllo", 547, -13, -1, 255, 255);
+    i = ft_printf("hola %c %s %i %d %u %x %X", 'c', NULL, 547, -13, -1, 255, 255);
 	printf("\n%d\n", i);
     return (0);
 }*/

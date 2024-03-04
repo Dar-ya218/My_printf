@@ -6,7 +6,7 @@
 /*   By: dabochko <dabochko@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 14:35:26 by dabochko          #+#    #+#             */
-/*   Updated: 2024/02/21 15:30:33 by dabochko         ###   ########.fr       */
+/*   Updated: 2024/03/01 12:15:04 by dabochko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ static int  ft_size(unsigned int n)
     int i;
 
     i = 0;
+	if (n == 0)
+		return (1);
     while (n > 0)
     {
         n = n / 10;
