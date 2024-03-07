@@ -6,7 +6,7 @@
 /*   By: dabochko <dabochko@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 14:35:26 by dabochko          #+#    #+#             */
-/*   Updated: 2024/03/01 12:15:04 by dabochko         ###   ########.fr       */
+/*   Updated: 2024/03/07 15:07:53 by dabochko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,9 @@ int	ft_putunbr(unsigned int n)
 	int i;
 
 	i = ft_size(n);
-	if (n >= 10)
-		ft_putunbr(n / 10);
-	ft_putchar((n % 10) + '0');
+	if (n >= 10 && ft_putunbr(n / 10) == -1)
+		return (-1);
+	if (ft_putchar((n % 10) + '0') == -1)
+		return (-1);
 	return (i);
 }

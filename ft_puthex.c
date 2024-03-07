@@ -6,7 +6,7 @@
 /*   By: dabochko <dabochko@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 14:37:44 by dabochko          #+#    #+#             */
-/*   Updated: 2024/03/01 14:15:04 by dabochko         ###   ########.fr       */
+/*   Updated: 2024/03/07 14:25:54 by dabochko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,12 +44,11 @@ int	ft_puthex(unsigned int n, char const place)
     hexDigits2 = "0123456789ABCDEF";
 	if (n == 0)
 		return (ft_putchar('0'));
-	/*size = ft_size(n);*/
-	if (n >= 16)
-		ft_puthex(n / 16, place);
-	if (place == 'x')
-	ft_putchar (hex[n % 16]);
-	if (place == 'X')
-        ft_putchar(hexDigits2[n % 16]);
+	if (n >= 16 && ft_puthex(n / 16, place) == -1)
+		return (-1);
+	if (place == 'x' && ft_putchar(hex[n % 16]) == -1)
+		return (-1);
+	if (place == 'X' && ft_putchar(hexDigits2[n % 16]) == -1)
+        return (-1);
 	return (size);
 }

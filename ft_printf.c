@@ -6,7 +6,7 @@
 /*   By: dabochko <dabochko@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 15:10:23 by dabochko          #+#    #+#             */
-/*   Updated: 2024/03/01 15:41:56 by dabochko         ###   ########.fr       */
+/*   Updated: 2024/03/07 14:56:03 by dabochko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,9 @@ static int	ft_selector(va_list args, char const place)
 		size += ft_puthex(va_arg(args, unsigned int), place);
 	else if (place == 'p')
 	{
-		size += ft_putstr("0x");
-		size += ft_putptr(va_arg(args, unsigned long));
+		if (ft_putstr("0x") == -1)
+			return (-1);
+		size += 2 + ft_putptr(va_arg(args, unsigned long));
 	}
 	else
 		size += ft_putchar(place);

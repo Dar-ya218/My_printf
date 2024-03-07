@@ -6,7 +6,7 @@
 /*   By: dabochko <dabochko@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 14:31:30 by dabochko          #+#    #+#             */
-/*   Updated: 2024/03/01 14:15:42 by dabochko         ###   ########.fr       */
+/*   Updated: 2024/03/07 14:29:45 by dabochko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ static int	ft_size(int n)
 int	ft_putnbr(int n)
 {
 	int size;
-
 	size = ft_size(n);
 	if (n == 0)
 		return(ft_putchar('0'));
@@ -41,12 +40,14 @@ int	ft_putnbr(int n)
 		return(ft_putstr("-2147483648"));
 	if (n < 0)
 	{
-		ft_putchar('-');
+		if (ft_putchar('-') == -1)
+			return (-1);
 		n = -n;
 		size++;
 	}
-	if (n > 9)
-		ft_putnbr(n / 10);
-	ft_putchar(n % 10 + '0');
+	if (n > 9 && ft_putnbr(n / 10) == -1)
+		return (-1);
+	if (ft_putchar(n % 10 + '0') == -1)
+		return ( -1);
 	return (size);
 }
