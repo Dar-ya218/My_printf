@@ -6,7 +6,7 @@
 /*   By: dabochko <dabochko@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 15:10:23 by dabochko          #+#    #+#             */
-/*   Updated: 2024/03/07 14:56:03 by dabochko         ###   ########.fr       */
+/*   Updated: 2024/03/07 16:06:19 by dabochko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ encuentra un carácter %, espera que el siguiente carácter sea un
 especificador de formato (c, s o d en este caso) y llama a la 
 función correspondiente para escribir el siguiente argumento en 
 la salida estándar. Si el carácter no es un %, simplemente lo 
-escribe en la salida estándar. Finalmente, utiliza va_end() 
-para limpiar args.*/
+escribe en la salida estándar. Finalmente, utiliza
+va_end() para limpiar args.*/
 
 static int	ft_selector(va_list args, char const place)
 {
@@ -80,7 +80,8 @@ int	ft_printf(const char *format, ...)
 /*int main(void) 
 {
 	int i;
-    i = ft_printf("hola %c %s %i %d %u %x %X", 'c', NULL, 547, -13, -1, 255, 255);
+    i = ft_printf("hola %c %s %i %d %u %x %X",\
+	'c', NULL, 547, -13, -1, 255, 255);
 	printf("\n%d\n", i);
     return (0);
 }*/
