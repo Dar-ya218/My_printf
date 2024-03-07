@@ -12,15 +12,13 @@
 
 #include "ft_printf.h"
 
-/* Toma una cadena de formato y un número variable de argumentos. 
-Utiliza va_start() para inicializar una lista de argumentos args. 
-Luego, recorre la cadena de formato carácter por carácter. Si 
-encuentra un carácter %, espera que el siguiente carácter sea un 
-especificador de formato (c, s o d en este caso) y llama a la 
-función correspondiente para escribir el siguiente argumento en 
-la salida estándar. Si el carácter no es un %, simplemente lo 
-escribe en la salida estándar. Finalmente, utiliza va_end() 
-para limpiar args.*/
+/* It takes a format string and a variable number of arguments. It uses
+va_start() to initialize an argument list args. Then, it goes through the
+format string character by character. If it finds a % character, it expects
+the next character to be a format specifier (c, s, or d in this case) and
+calls the corresponding function to write the next argument to standard
+output. If the character is not a %, it simply writes it to standard
+output. Finally, it uses va_end() to clean up args.*/
 
 static int	ft_selector(va_list args, char const place)
 {

@@ -11,14 +11,12 @@
 /* ************************************************************************** */
 
 #includo "ft_printf.h"
-/*imprime un número en formato hexadecimal
-Esta función funciona de manera similar a ft_putnbr(), pero en
-lugar de dividir y tomar el módulo por 10, divide y toma el
-módulo por 16, y luego usa el resultado para indexar en una
-cadena de dígitos hexadecimales. Si n es mayor o igual a 16,
-hace una llamada recursiva a ft_puthex(n / 16) para imprimir
-los dígitos más significativos. Luego, imprime el dígito menos
-significativo*/
+/*It prints a number in hexadecimal format. This function works similarly
+to ft_putnbr(), but instead of dividing and taking the modulus by 10, it
+divides and takes the modulus by 16, and then uses the result to index
+into a string of hexadecimal digits. If n is greater than or equal to 16,
+it makes a recursive call to ft_puthex(n / 16) to print the most significant
+digits. Then, it prints the least significant digit.*/
 void	ft_puthex_upper(unsigned int n)
 {
 	char *hexDigits = "0123456789ABCDEF";
