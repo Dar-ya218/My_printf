@@ -6,7 +6,7 @@
 /*   By: dabochko <dabochko@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 15:10:23 by dabochko          #+#    #+#             */
-/*   Updated: 2024/03/07 16:06:19 by dabochko         ###   ########.fr       */
+/*   Updated: 2024/03/08 14:13:41 by dabochko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,27 +61,31 @@ int	ft_printf(const char *format, ...)
 	va_start(args, format);
 	while (format[i])
 	{
-		if (format[i] == '%')
+		if (format[i] == '%') //4. i == 2 | format[i] == ' ' //7. i == 3 | format[i] == '%'
 		{
-			size = ft_selector(args, format[i + 1]);
+			//1. i == 0 | format[i] == '%'
+			size = ft_selector(args, format[i + 1]); //format[i + 1] == 'c' | i == 0
 			i++;
+			//2. i == 1 | format[i] == 'c'
 		}
 		else
-			size = ft_putchar(format[i]);
+			size = ft_putchar(format[i]); //5. i == 2 | format[i] == ' '
 		if (size == -1)
 			return (-1);
+		if (format[i] != '\0')
+			i++; //3. i == 2 //6. i == 3
 		size2 += size;
-		i++;
 	}
 	va_end(args);
 	return (size2);
 }
 
-/*int main(void) 
+int main(void) 
 {
-	int i;
-    i = ft_printf("hola %c %s %i %d %u %x %X",\
-	'c', NULL, 547, -13, -1, 255, 255);
-	printf("\n%d\n", i);
+	//int i;
+    //i = ft_printf("hola %c %s %i %d %u %x %X",\
+	//'c', NULL, 547, -13, -1, 255, 255);
+	//printf("\n%d\n", i);
+	ft_printf("%"); // '%' '\0' == 2
     return (0);
-}*/
+}
